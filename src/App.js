@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { createTheme, responsiveFontSizes } from '@material-ui/core';
+import { ThemeProvider } from '@material-ui/styles';
+import React from 'react'
+import Router from './Routes/Router';
+
+let theme = createTheme({
+    palette: {
+        secondary: {
+          main: '#f44336',
+        },
+      },
+});
+theme = responsiveFontSizes(theme);
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return(
+        <ThemeProvider theme={theme}>
+            <Router/>
+        </ThemeProvider>
+    )
 }
-
 export default App;
